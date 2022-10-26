@@ -1,14 +1,20 @@
 import { characters } from "../../../data/characters";
+import { Fighter } from "../../../data/fighter";
 import { King } from "../../../data/king";
+import { Squire } from "../../../data/squire";
 
 export function CardItem() {
     return (
         <>
             {characters.map((item) => (
-                <li className="character col">
+                <li key={item.id} className="character col">
                     <div className="card character__card">
                         <img
-                            src={"img/" + item.image}
+                            src={
+                                "./assets/img/" +
+                                item.name.toLowerCase() +
+                                ".jpg"
+                            }
                             alt={`${item.name} ${item.family}`}
                             className="character__picture card-img-top"
                         />
@@ -32,12 +38,30 @@ export function CardItem() {
                                 <ul className="list-unstyled">
                                     <li>
                                         Rule years:{" "}
-                                        {(item as King).kingdomYears !==
-                                            undefined}
+                                        {(item as King).kingdomYears ===
+                                        undefined
+                                            ? ""
+                                            : (item as King).kingdomYears}
                                     </li>
-                                    <li>Weapon: XXX</li>
-                                    <li>Skills: X</li>
-                                    <li>Pathetic level: X</li>
+                                    <li>
+                                        Weapon:{" "}
+                                        {(item as Fighter).weapon === undefined
+                                            ? ""
+                                            : (item as Fighter).weapon}
+                                    </li>
+                                    <li>
+                                        Skills:{" "}
+                                        {(item as Fighter).skills === undefined
+                                            ? ""
+                                            : (item as Fighter).skills}
+                                    </li>
+                                    <li>
+                                        Pathetic level:{" "}
+                                        {(item as Squire).patheticLevel ===
+                                        undefined
+                                            ? ""
+                                            : (item as Squire).patheticLevel}
+                                    </li>
                                     <li>Advising: X</li>
                                     <li>Squiring: X</li>
                                 </ul>
