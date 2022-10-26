@@ -8,5 +8,10 @@ describe("Given CardItem component", () => {
             const element = screen.getByText(/Joffrey Baratheon/i);
             expect(element).toBeInTheDocument();
         });
+        test("Then it should show a picture", () => {
+            render(<CardItem />);
+            const element = screen.getByAltText(/Daenerys Targaryen/i);
+            expect(element).toBeInTheDocument();
+        });
     });
 });
