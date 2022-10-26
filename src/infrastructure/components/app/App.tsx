@@ -1,7 +1,11 @@
-import "./App.css";
+import { AllCards } from "../all.cards/all.cards";
 
 function App() {
-    return <div className="App"></div>;
+    return (
+        <div className="App">
+            <AllCards></AllCards>
+        </div>
+    );
 }
 
 export default App;
