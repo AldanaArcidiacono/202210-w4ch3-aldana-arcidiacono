@@ -1,9 +1,10 @@
-import { characters } from "../../../data/characters";
-import { Fighter } from "../../../data/fighter";
-import { King } from "../../../data/king";
-import { Squire } from "../../../data/squire";
+import { characters } from "../../data/characters";
+import { Fighter } from "../../models/fighter";
+import { King } from "../../models/king";
+import { Squire } from "../../models/squire";
 
 export function CardItem() {
+    // El map no iria aca sino en  all cards y se le pasa el item por props
     return (
         <>
             {characters.map((item) => (
@@ -36,8 +37,10 @@ export function CardItem() {
                             </div>
                             <div className="character__overlay">
                                 <ul className="list-unstyled">
+                                    {/* lo  suyo sería que el condicional agarre todo el li y que si no tiene el 
+                                    personaje esa característica, no aparezca.*/}
                                     <li>
-                                        Rule years:{" "}
+                                        {" "}
                                         {(item as King).kingdomYears ===
                                         undefined
                                             ? ""
